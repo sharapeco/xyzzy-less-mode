@@ -60,6 +60,10 @@
   (setq mode-name "less")
   (use-keymap *less-mode-map*)
   (use-syntax-table *less-mode-syntax-table*)
+  ;; コメント
+  (setq comment-start "// ")
+  (setq comment-end "")
+  (setq comment-start-skip "/\\(\\*+\\|/\\)[ \t]*")
   ;; キーワードファイル
   (and *less-keyword-file*
        (null *less-keyword-hash-table*)
@@ -69,4 +73,3 @@
     (make-local-variable 'keyword-hash-table)
     (setq keyword-hash-table *less-keyword-hash-table*))
   (run-hooks '*less-mode-hook*))
-
